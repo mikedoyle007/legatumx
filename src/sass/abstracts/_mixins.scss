@@ -1,0 +1,390 @@
+@import '../abstracts/variables';
+
+
+// GRADIENTS
+@mixin gradient-primary {
+  background-image: linear-gradient(to right bottom, $gradient-1, $gradient-2);
+}
+
+@mixin gradient-primary-reverse {
+  background-image: linear-gradient(to right bottom, $gradient-2, $gradient-1);
+}
+
+@mixin gradient-primary-light {
+  background-image: linear-gradient(to right bottom, $gradient-1-light, $gradient-2-light);
+}
+
+@mixin gradient-primary-light-reverse {
+  background-image: linear-gradient(to right bottom, $gradient-2-light, $gradient-1-light);
+}
+
+@mixin gradient-danger {
+  background-image: linear-gradient(to right bottom, $danger-1, $danger-2);
+}
+
+@mixin gradient-danger-reverse {
+  background-image: linear-gradient(to right bottom, $danger-2, $danger-1);
+}
+
+@mixin gradient-danger-light {
+  background-image: linear-gradient(to right bottom, $danger-1-light, $danger-2-light);
+}
+
+@mixin gradient-danger-light-reverse {
+  background-image: linear-gradient(to right bottom, $danger-2-light, $danger-1-light);
+}
+
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin centerXY {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// MEDIA QUERIES
+/*
+0 - 600px: Phone;
+600 - 900px: Tablet Portrait;
+600 - 1200px: Tablet Landscape;
+1200 - 1800px: Default Styles;
+1800px + : Large Desktop;
+
+$breakpoint argument selections:
+- phone
+- tab-port
+- tab-land
+- large-desktop
+1em = 16px;
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) { @content }; // 600px
+  }
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em) { @content }; // 900px
+  }
+  @if $breakpoint == tab-land {
+    @media only screen and  (max-width: 75em) { @content }; // 1200px
+  }
+  @if $breakpoint == large-desktop {
+    @media only screen and (min-width: 112.5em) { @content }; // 1800px
+  }
+}
+
+
+// --------------------------------------------------
+// Flexbox SASS mixins
+// The spec: http://www.w3.org/TR/css3-flexbox
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Flexbox SASS mixins
+// The spec: http://www.w3.org/TR/css3-flexbox
+// --------------------------------------------------
+
+// Flexbox display
+@mixin ngflexbox() {
+  :host {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+  }
+}
+
+// The 'flex' shorthand
+// - applies to: flex items
+// <positive-number>, initial, auto, or none
+@mixin ngflex($values) {
+  :host {
+    -webkit-box-flex: $values;
+       -moz-box-flex: $values;
+        -webkit-flex: $values;
+        -ms-flex: $values;
+            flex: $values;
+  }
+}
+
+// Flex Flow Direction
+// - applies to: flex containers
+// row | row-reverse | column | column-reverse
+@mixin ngflex-direction($direction) {
+  :host {
+    -webkit-flex-direction: $direction;
+       -moz-flex-direction: $direction;
+        -ms-flex-direction: $direction;
+            flex-direction: $direction;
+  }
+}
+
+// Flex Line Wrapping
+// - applies to: flex containers
+// nowrap | wrap | wrap-reverse
+@mixin ngflex-wrap($wrap) {
+  :host {
+    -webkit-flex-wrap: $wrap;
+       -moz-flex-wrap: $wrap;
+        -ms-flex-wrap: $wrap;
+            flex-wrap: $wrap;
+  }
+}
+
+// Flex Direction and Wrap
+// - applies to: flex containers
+// <flex-direction> || <flex-wrap>
+@mixin ngflex-flow($flow) {
+  :host {
+    -webkit-flex-flow: $flow;
+       -moz-flex-flow: $flow;
+        -ms-flex-flow: $flow;
+            flex-flow: $flow;
+  }
+}
+
+// Display Order
+// - applies to: flex items
+// <integer>
+@mixin ngorder($val) {
+  :host {
+    -webkit-box-ordinal-group: $val;
+       -moz-box-ordinal-group: $val;
+           -ms-flex-order: $val;
+            -webkit-order: $val;
+              order: $val;
+  }
+}
+
+// Flex grow factor
+// - applies to: flex items
+// <number>
+@mixin ngflex-grow($grow) {
+  :host {
+    -webkit-flex-grow: $grow;
+       -moz-flex-grow: $grow;
+        -ms-flex-grow: $grow;
+            flex-grow: $grow;
+  }
+}
+
+// Flex shrink
+// - applies to: flex item shrink factor
+// <number>
+@mixin ngflex-shrink($shrink) {
+  :host {
+    -webkit-flex-shrink: $shrink;
+       -moz-flex-shrink: $shrink;
+        -ms-flex-shrink: $shrink;
+            flex-shrink: $shrink;
+  }
+}
+
+// Flex basis
+// - the initial main size of the flex item
+// - applies to: flex items initial main size of the flex item
+// <width>
+@mixin ngflex-basis($width) {
+  :host {
+    -webkit-flex-basis: $width;
+       -moz-flex-basis: $width;
+        -ms-flex-basis: $width;
+            flex-basis: $width;
+  }
+}
+
+// Axis Alignment
+// - applies to: flex containers
+// flex-start | flex-end | center | space-between | space-around
+@mixin ngjustify-content($justify) {
+  :host {
+    -webkit-justify-content: $justify;
+       -moz-justify-content: $justify;
+        -ms-justify-content: $justify;
+            justify-content: $justify;
+              -ms-flex-pack: $justify;
+  }
+}
+
+// Packing Flex Lines
+// - applies to: multi-line flex containers
+// flex-start | flex-end | center | space-between | space-around | stretch
+@mixin ngalign-content($align) {
+  :host {
+    -webkit-align-content: $align;
+       -moz-align-content: $align;
+        -ms-align-content: $align;
+            align-content: $align;
+  }
+}
+
+// Cross-axis Alignment
+// - applies to: flex containers
+// flex-start | flex-end | center | baseline | stretch
+@mixin ngalign-items($align) {
+  :host {
+    -webkit-align-items: $align;
+       -moz-align-items: $align;
+        -ms-align-items: $align;
+            align-items: $align;
+  }
+}
+
+// Cross-axis Alignment
+// - applies to: flex items
+// auto | flex-start | flex-end | center | baseline | stretch
+@mixin ngalign-self($align) {
+  :host {
+    -webkit-align-self: $align;
+       -moz-align-self: $align;
+        -ms-align-self: $align;
+            align-self: $align;
+  }
+}
+
+
+
+// --------------------------------------------------
+//              NON ANGULAR FLEX
+// --------------------------------------------------
+
+// Flexbox display
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+// The 'flex' shorthand
+// - applies to: flex items
+// <positive-number>, initial, auto, or none
+@mixin flex($values) {
+  -webkit-box-flex: $values;
+     -moz-box-flex: $values;
+      -webkit-flex: $values;
+  	  -ms-flex: $values;
+  	      flex: $values;
+}
+
+// Flex Flow Direction
+// - applies to: flex containers
+// row | row-reverse | column | column-reverse
+@mixin flex-direction($direction) {
+  -webkit-flex-direction: $direction;
+     -moz-flex-direction: $direction;
+      -ms-flex-direction: $direction;
+          flex-direction: $direction;
+}
+
+// Flex Line Wrapping
+// - applies to: flex containers
+// nowrap | wrap | wrap-reverse
+@mixin flex-wrap($wrap) {
+  -webkit-flex-wrap: $wrap;
+     -moz-flex-wrap: $wrap;
+      -ms-flex-wrap: $wrap;
+          flex-wrap: $wrap;
+}
+
+// Flex Direction and Wrap
+// - applies to: flex containers
+// <flex-direction> || <flex-wrap>
+@mixin flex-flow($flow) {
+  -webkit-flex-flow: $flow;
+     -moz-flex-flow: $flow;
+      -ms-flex-flow: $flow;
+          flex-flow: $flow;
+}
+
+// Display Order
+// - applies to: flex items
+// <integer>
+@mixin order($val) {
+  -webkit-box-ordinal-group: $val;
+     -moz-box-ordinal-group: $val;
+  	     -ms-flex-order: $val;
+  	      -webkit-order: $val;
+  		      order: $val;
+}
+
+// Flex grow factor
+// - applies to: flex items
+// <number>
+@mixin flex-grow($grow) {
+  -webkit-flex-grow: $grow;
+     -moz-flex-grow: $grow;
+      -ms-flex-grow: $grow;
+          flex-grow: $grow;
+}
+
+// Flex shrink
+// - applies to: flex item shrink factor
+// <number>
+@mixin flex-shrink($shrink) {
+  -webkit-flex-shrink: $shrink;
+     -moz-flex-shrink: $shrink;
+      -ms-flex-shrink: $shrink;
+          flex-shrink: $shrink;
+}
+
+// Flex basis
+// - the initial main size of the flex item
+// - applies to: flex itemsnitial main size of the flex item
+// <width>
+@mixin flex-basis($width) {
+  -webkit-flex-basis: $width;
+     -moz-flex-basis: $width;
+      -ms-flex-basis: $width;
+          flex-basis: $width;
+}
+
+// Axis Alignment
+// - applies to: flex containers
+// flex-start | flex-end | center | space-between | space-around
+@mixin justify-content($justify) {
+  -webkit-justify-content: $justify;
+     -moz-justify-content: $justify;
+      -ms-justify-content: $justify;
+          justify-content: $justify;
+            -ms-flex-pack: $justify;
+}
+
+// Packing Flex Lines
+// - applies to: multi-line flex containers
+// flex-start | flex-end | center | space-between | space-around | stretch
+@mixin align-content($align) {
+  -webkit-align-content: $align;
+     -moz-align-content: $align;
+      -ms-align-content: $align;
+          align-content: $align;
+}
+
+// Cross-axis Alignment
+// - applies to: flex containers
+// flex-start | flex-end | center | baseline | stretch
+@mixin align-items($align) {
+  -webkit-align-items: $align;
+     -moz-align-items: $align;
+      -ms-align-items: $align;
+          align-items: $align;
+}
+
+// Cross-axis Alignment
+// - applies to: flex items
+// auto | flex-start | flex-end | center | baseline | stretch
+@mixin align-self($align) {
+  -webkit-align-self: $align;
+     -moz-align-self: $align;
+      -ms-align-self: $align;
+          align-self: $align;
+}
