@@ -1,0 +1,140 @@
+@import '../../../sass/abstracts/_variables.scss';
+@import '../../../sass/abstracts/_mixins.scss';
+
+
+.container {
+    display: grid;
+    grid-template-columns: [col-start] 1fr [col-end];
+    grid-template-rows: [row-start] $navbar-height [row-end];
+
+
+    .nav {
+        grid-column: col-start / col-end;
+        grid-row: row-start / row-end;
+
+        // &--bg {
+        //     // background-color: #333; // rgba(0,0,0,.2)
+        //     background-color: pink;
+        //     // background-color: #444141;
+        //     z-index: -1;
+        // }
+
+        margin-top: 0;
+        padding: 0 0 0 $navbar-padding-left;
+        position: relative;
+        z-index: 1;
+        background-color: rgba(0,0,0,0.2);
+
+        display: grid;
+        grid-template-columns: [grid-start logo-start] minmax(min-content, 70%) [logo-end] repeat(4, [button-start] minmax(min-content, 1fr) [button-end]) [navigation-start] $navigation-width [grid-end];
+
+        grid-template-rows: $navbar-height;
+
+        align-items: center;
+        list-style: none;
+        @media only screen and (max-width: $bp-small) {
+            display: none; // + implicit : min-content min-content min-content repeat(3, min-content);
+        }
+        &__item {
+            display: grid;
+            align-self: stretch;
+            align-items: center;
+            padding: 0 1.5rem;
+            transition: all .2s;
+            -moz-backface-visibility: hidden;
+            backface-visibility: hidden;
+
+            cursor: pointer;
+
+            &--logo {
+                justify-self: start;
+                grid-column: 1 / 2;
+            }
+            &--2 {
+                grid-column: 3 / 4;
+            }
+            &--3 {
+                grid-column: 4 / 5;
+            }
+            &--4 {
+                justify-self: end;
+                grid-column: 5 / 6;
+            }
+            &--5 {
+                justify-self: end;
+                grid-column: 5 / 6;
+            }
+            &--6 {
+                justify-self: stretch;
+                grid-column: navigation-start / grid-end;
+            }
+
+            &--logo:hover {
+                transform: scale(1.1);
+            }
+
+            &--2,
+            &--3,
+            &--4,
+            &--5 {
+                padding: 0;
+
+                &:hover {
+                    background-color: rgba(0,0,0,0.3);
+                }
+            }
+        }
+
+        &__icon {
+            width: auto;
+            height: 5rem;
+            margin-right: 1rem;
+            fill: currentColor;
+            @media only screen and (max-width: $bp-small) {
+                margin-right: 0;
+                margin-bottom: 7px;
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+
+            &-text {
+                height: 3rem;
+                align-self: center;
+            }
+        }
+        &__link,
+        &__link:link,
+        &__link:visited {
+            letter-spacing: .2rem;
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+            font-family: $font-display;
+            text-transform: uppercase;
+            text-align: center;
+
+            transition: all .2s;
+            cursor: pointer;
+        }
+
+        &__link--logo {
+            display: grid;
+            align-items: center;
+            justify-items: center;
+        }
+
+        &__link {
+            &--2,
+            &--3,
+            &--4,
+            &--5 {
+                display: block;
+                padding: 2.2rem 1.8rem;
+            }
+        }
+    }
+
+    @include respond(phone) {
+        display: none;
+    }
+}
