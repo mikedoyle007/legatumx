@@ -8,6 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { AboutComponent } from './components/about/about.component';
 import { FeaturesComponent } from './components/features/features.component';
+import { ToursComponent } from './components/tours/tours.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -19,7 +20,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     HeaderComponent,
     LandingComponent,
     AboutComponent,
-    FeaturesComponent
+    FeaturesComponent,
+    ToursComponent
   ],
   imports: [
     BrowserModule,
