@@ -1,5 +1,4 @@
 // COLORS
-// FIXME: some of these colors conflict
 $--color-primary:#eb2f64;
 $--color-primary-light:#FF3366;
 $--color-primary-dark: #BA265D;
@@ -19,11 +18,12 @@ $--shadow-light: 0 2rem 5rem rgba(0,0,0,.16);
 $--line: 1px solid $--color-grey-light-2;
 
 
-$font-primary: 'Nunito', sans-serif;
-$font-display: 'Josefin Sans', sans-serif;
+$font-primary: "Lato", sans-serif;
+// $font-primary: 'Nunito', sans-serif;
+// $font-display: 'Josefin Sans', sans-serif;
 
-$color-gold: #c69963;
-$color-gold-dark: #B28451;
+// $color-gold: #c69963;
+// $color-gold-dark: #B28451;
 
 // Note: referenced in 'mixins' file
 $gradient-1: #bd639f;
@@ -32,6 +32,8 @@ $gradient-2: #583191;
 $gradient-1-light: #d77db9;
 $gradient-2-light: #724bab;
 
+
+// Used for cards
 $color-primary: #969df5;
 $color-primary-light:#c5cdf6;
 $color-primary-dark: #485194;
@@ -41,6 +43,7 @@ $color-secondary-dark: #ff7730;
 
 $color-tertiary-light: #2998ff;
 $color-tertiary-dark: #5643fa;
+
 
 $color-grey-light-1: #f7f7f7;
 $color-grey-light-2: #eee;
@@ -55,7 +58,6 @@ $danger-2: #b22222;   // 'firebrick'
 // lightened 10%
 $danger-1-light: #e77676;
 $danger-2-light: #cc3c3c;
-
 
 $color-white: #fff;
 $color-black: #000;
