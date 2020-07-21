@@ -1,0 +1,24 @@
+@import '../../../sass/abstracts/_variables.scss';
+@import '../../../sass/abstracts/_mixins.scss';
+
+
+.section-features {
+  padding: 20rem 0;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-tertiary-light, 0.15),
+      rgba($color-tertiary-dark, 0.5)),
+  url(../../../assets/img/nat-4.jpg);
+  background-size: cover;
+
+  transform: skewY(-7deg);
+  margin-top: -10rem;
+
+  & > * {
+    transform: skewY(7deg);
+  }
+
+  @include respond(tab-port) {
+    padding: 10rem 0;
+  }
+}
