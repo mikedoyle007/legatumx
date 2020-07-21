@@ -6,6 +6,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LandingComponent } from './components/landing/landing.component';
+import { AboutComponent } from './components/about/about.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -15,7 +16,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     NavbarComponent,
     NavigationComponent,
     HeaderComponent,
-    LandingComponent
+    LandingComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
