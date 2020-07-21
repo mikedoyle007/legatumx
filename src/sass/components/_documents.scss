@@ -1,0 +1,45 @@
+@import "../abstracts/_variables.scss";
+@import "../abstracts/_mixins.scss";
+@import "../base/_typography.scss";
+@import "../base/_utilities.scss";
+
+
+.section-document {
+  padding: 15rem 0;
+  background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+
+  display: grid;
+  grid-template-columns: [doc-start] minmax(min-content, $grid-width) [doc-end];
+  justify-content: center;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}
+
+.document {
+  background-color: $color-white;
+  margin-top: -8rem;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba($color-black, .3);
+  padding: 10rem;
+
+  grid-column: doc-start / doc-end;
+
+  &--content {
+    color: inherit;
+
+    ol {
+      list-style-type: lower-alpha;
+      padding-left: 6rem;
+    }
+  }
+
+  @include respond(tab-port) {
+    padding-top: 15rem;
+  }
+
+  @include respond(phone) {
+    padding-top: 10rem;
+  }
+}
