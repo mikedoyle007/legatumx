@@ -1,5 +1,8 @@
 # Legatumx
 
+**The sole purpose of this repo is to showcase the old Legatumx landing page. Most of the functionality has been removed for this demo.**
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
 ## Development server
