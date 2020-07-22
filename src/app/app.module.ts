@@ -11,6 +11,7 @@ import { AboutComponent } from './components/about/about.component';
 import { FeaturesComponent } from './components/features/features.component';
 import { ToursComponent } from './components/tours/tours.component';
 import { GetStartedComponent } from './components/get-started/get-started.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -24,7 +25,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     AboutComponent,
     FeaturesComponent,
     ToursComponent,
-    GetStartedComponent
+    GetStartedComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
