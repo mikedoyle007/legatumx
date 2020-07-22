@@ -3,7 +3,7 @@
     <div class="start">
       <div class="start__form">
 
-        <form (ngSubmit)="onSubmit()" class="form">
+        <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" class="form">
           <div class="u-center-text u-margin-bottom-medium">
             <h2 class="heading-secondary">
               <span *ngIf="!this.subscribed">Stay in touch for new offerings!</span>
@@ -17,7 +17,7 @@
               <label for="name" class="form__label">Full Name</label>
             </div>
             <div class="form__group">
-              <input [(ngModel)]="email" name="email" type="email" class="form__input form__input--small" placeholder="Email Address" id="email" required >
+              <input [(ngModel)]="email" name="email" type="email" class="form__input form__input--small" placeholder="Email Address" id="email" required email>
               <label for="email" class="form__label">Email Address</label>
             </div>
 

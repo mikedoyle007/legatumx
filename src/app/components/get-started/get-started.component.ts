@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -14,16 +15,22 @@ export class GetStartedComponent {
   email: '';
   subscribed: boolean = false;
 
-  ngOnInit() {
-  }
-  
-  onSubmit() {
-    // Simply reset form for demo
-    this.name = '';
-    this.email = '';
+  onSubmit(form: NgForm) {
 
-    // Flip subscribed
-    this.subscribed = !this.subscribed;
+    if (form.valid) {
+
+      // Simply reset form for demo
+      this.name = '';
+      this.email = '';
+
+      // Flip subscribed
+      this.subscribed = !this.subscribed;
+
+      // Don't actually subscribe for the demo
+      console.log("Don't worry, this is only a demo, you're not subscribed to anything.");
+    } 
+
+    console.log('Form values: ', form.value);
   }
 
 }
